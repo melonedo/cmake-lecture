@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.1)
+project(cmake-lecture)
+add_subdirectory(hello)
+add_subdirectory(add)
+add_subdirectory(cuda)

@@ -1,0 +1,17 @@
+function(foo file)
+    message(STATUS "ARGV: ${ARGV}")
+    set(options FAST)
+    set(oneValueArgs SOURCE DESTINATION)
+    set(multiValueArgs TARGETS CONFIG)
+    cmake_parse_arguments(PARSE_ARGV 1 FOO "${options}" "${oneValueArgs}" "${multiValueArgs}")
+    message(STATUS "file: ${file}")
+    message(STATUS "FOO_FAST: ${FOO_FAST}")
+    message(STATUS "FOO_SOURCE: ${FOO_SOURCE}")
+    message(STATUS "FOO_DESTINATION: ${FOO_DESTINATION}")
+    message(STATUS "FOO_TARGETS: ${FOO_TARGETS}")
+    message(STATUS "FOO_UNPARSED_ARGUMENTS: ${FOO_UNPARSED_ARGUMENTS}")
+    message(STATUS "FOO_KEYWORDS_MISSING_VALUES: ${FOO_KEYWORDS_MISSING_VALUES}")
+endfunction()
+
+# 参数内容不能是SOURCE DESTINATION之流
+foo(Jiading TARGETS TONGJI TOSA WHAT FAST SOURCE source DESTINATION world CONFIG)
