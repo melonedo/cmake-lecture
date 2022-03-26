@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(add LANGUAGES C)
+project(add LANGUAGES C CXX)
 
 add_library(add SHARED)
 target_sources(add PRIVATE source/add.c)
@@ -9,11 +9,16 @@ include(GenerateExportHeader)
 generate_export_header(add)
 target_include_directories(add PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(test-add source/test-add.c)
-target_link_libraries(test-add PRIVATE add)
+add_executable(test-add-c source/test-add.c)
+target_link_libraries(test-add-c PRIVATE add)
 
-set_property(DIRECTORY "${PROJECT_SOURCE_DIR}" PROPERTY VS_STARTUP_PROJECT test-add)
-add_custom_target(run-test-add test-add)
+set_property(DIRECTORY "${PROJECT_SOURCE_DIR}" PROPERTY VS_STARTUP_PROJECT test-add-c)
+add_custom_target(run-test-add-c test-add-c)
+
+add_executable(test-add-cpp source/test-add.cpp)
+target_link_libraries(test-add-cpp PRIVATE add)
+add_custom_target(run-test-add-cpp test-add-cpp)
+
 
 #[[
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/configure-python.cmake
