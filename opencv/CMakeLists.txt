@@ -1,5 +1,5 @@
 project(opencv-test CXX)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV CONFIG REQUIRED)
 
 # OpenCV不导出目标，只导出变量，可以用interface library简单地包装一下
 add_library(OpenCV INTERFACE)

@@ -32,4 +32,4 @@ file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/test-add-$<CONFIG>.py INPUT ${C
 
 find_package(Python3 COMPONENTS Interpreter)
 
-add_custom_target(run-test-add-python COMMAND Python3::Interpreter test-add-$<CONFIG>.py)
+add_custom_target(run-test-add-python VERBATIM COMMAND Python3::Interpreter test-add-$<CONFIG>.py)

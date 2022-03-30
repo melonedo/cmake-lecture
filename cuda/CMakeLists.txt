@@ -17,3 +17,6 @@ add_executable(cuda-test calculate.cu main.cpp)
 
 # 连接到INTERFACE库enable_utf8即可启用utf-8
 target_link_libraries(cuda-test PRIVATE enable_utf8)
+
+# 指定显卡的架构，75代表图灵。
+set_target_properties(cuda-test PROPERTIES CUDA_ARCHITECTURES 75)
