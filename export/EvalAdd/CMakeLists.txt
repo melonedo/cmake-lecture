@@ -6,7 +6,7 @@ project(eval_add VERSION 0.0.1 LANGUAGES CXX)
 # 提供CMAKE_INSTALL_INCLUDEDIR
 include(GNUInstallDirs)
 # 外部依赖
-find_package(Boost REQUIRED COMPONENTS regex)
+find_package(Boost CONFIG REQUIRED COMPONENTS regex)
 
 # 定义库，没什么特别的
 add_library(eval_add SHARED source/eval_add.cpp)
